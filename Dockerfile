@@ -16,6 +16,6 @@ RUN /venv/bin/pip install --disable-pip-version-check -r /requirements.txt
 # Copy the virtualenv into a distroless image
 FROM gcr.io/distroless/python3-debian10
 COPY --from=build-venv /venv /venv
-COPY . /app
+COPY ./app /app
 WORKDIR /app
 ENTRYPOINT ["/venv/bin/python3", "psutil_example.py"]
